@@ -43,4 +43,11 @@
 
     </test>
 
+    <test name="Library">
+        <parameter name="baseURI" value="https://rahulshettyacademy.com"></parameter>
+        <classes>
+            <class name="com.qa.gorest.tests.LibraryCreateAPITest"/>
+        </classes>
+    </test>
+
 </suite>

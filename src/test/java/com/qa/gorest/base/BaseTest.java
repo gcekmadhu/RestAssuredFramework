@@ -22,6 +22,9 @@ public class BaseTest {
     public static final String REQ_RES_ENDPOINT="/api/users";
     public static final String AMADEUS_TOKEN_ENDPOINT="/v1/security/oauth2/token";
     public static final String AMADEUS_FLIGHT_ENDPOINT="/v1/shopping/flight-destinations";
+    public static final String LIBRARY_CREATE_ENDPOINT="/Library/Addbook.php";
+    public static final String LIBRARY_GET_ENDPOINT="Library/GetBook.php";
+    public static final String LIBRARY_DELETE_ENDPOINT="/Library/DeleteBook.php";
     @Parameters({"baseURI"})
     @BeforeTest
     public void setUp(String baseURI){
