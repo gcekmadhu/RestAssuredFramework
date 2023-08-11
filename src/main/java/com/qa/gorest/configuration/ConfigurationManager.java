@@ -8,46 +8,57 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigurationManager {
-    private Properties properties;
-    private FileInputStream fis;
+    private Properties prop;
+    private FileInputStream ip;
 
     public Properties initProp() {
-        properties = new Properties();
-        //mvn clean install -Denv="qa"
-        String env=System.getProperty("env");
-        System.out.println("Running on env"+env);
-        if(env==null){
-            System.out.println("No env provided hence running test on qa");
-        }
-        else{
-            System.out.println("Running on env"+env);
-            try {
-                switch (env.toLowerCase()) {
+        prop = new Properties();
+
+        // maven: cmd line argument:
+        // mvn clean install -Denv="qa"
+        // mvn clean install
+
+        String envName = System.getProperty("env");
+
+        try {
+            if (envName == null) {
+                System.out.println("no env is given...hence running tests on QA env... ");
+                ip = new FileInputStream("./src/test/resources/config/qa.config.properties");
+            } else {
+                System.out.println("Running tests on env: " + envName);
+
+                switch (envName.toLowerCase().trim()) {
                     case "qa":
-                        fis = new FileInputStream("./src/test/resources/config/qa.config.properties");
+                        ip = new FileInputStream("./src/test/resources/config/qa.config.properties");
                         break;
                     case "dev":
-                        fis = new FileInputStream("./src/test/resources/config/dev.config.properties");
+                        ip = new FileInputStream("./src/test/resources/config/dev.config.properties");
                         break;
                     case "stage":
-                        fis = new FileInputStream("./src/test/resources/config/stage.config.properties");
+                        ip = new FileInputStream("./src/test/resources/config/stage.config.properties");
                         break;
+                    case "prod":
+                        ip = new FileInputStream("./src/test/resources/config/config.properties");
+                        break;
+
                     default:
-                        System.out.println("Please pass right env..." + env);
-                        throw new APIFrameworkException("WRONGENV");
+                        System.out.println("Please pass the right env name..." + envName);
+                        throw new APIFrameworkException("WRONG ENV IS Given");
                 }
             }
-            catch (FileNotFoundException e){
-                e.printStackTrace();
-            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-        try {
-            properties.load(fis);
+
+        try
+
+        {
+            prop.load(ip);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return properties;
+
+        return prop;
+
     }
-
-
 }
