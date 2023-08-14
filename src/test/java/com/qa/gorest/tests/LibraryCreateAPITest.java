@@ -12,6 +12,7 @@ import io.restassured.response.Response;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.objectweb.asm.TypeReference;
 import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -76,6 +77,7 @@ public Library lib;
         Response response=restClient.delete(LIBRARY_DELETE_ENDPOINT,"json",lib,false,true);
         Assert.assertEquals(response.statusCode(),APIHttpStatus.HTTPSTATUS.OK_200.getCode());
         Assert.assertEquals(response.path("msg"),"book is successfully deleted");
+
     }
 
 }
