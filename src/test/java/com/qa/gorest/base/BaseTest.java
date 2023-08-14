@@ -4,13 +4,12 @@ import com.qa.gorest.client.RestClient;
 import com.qa.gorest.configuration.ConfigurationManager;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.util.Properties;
 
 public class BaseTest {
+
     protected ConfigurationManager configurationManager;
     protected Properties prop;
     protected RestClient restClient;
@@ -25,8 +24,10 @@ public class BaseTest {
     public static final String LIBRARY_CREATE_ENDPOINT="/Library/Addbook.php";
     public static final String LIBRARY_GET_ENDPOINT="Library/GetBook.php";
     public static final String LIBRARY_DELETE_ENDPOINT="/Library/DeleteBook.php";
+    public static final String PET_POST="/v2/pet";
+    public static final String PET_GET="v2/pet";
     @Parameters({"baseURI"})
-    @BeforeTest
+    @BeforeClass
     public void setUp(String baseURI){
         RestAssured.filters(new AllureRestAssured());
         configurationManager=new ConfigurationManager();
@@ -40,4 +41,6 @@ public class BaseTest {
     public void getUserSetup(){
         restClient=new RestClient(prop,baseURI);
     }
+
+
 }

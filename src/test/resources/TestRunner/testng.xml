@@ -5,9 +5,12 @@
     <listeners>
         <listener class-name="com.qa.gorest.listeners.ExtentReportListener"></listener>
     </listeners>
+
+
     <test name="gorest">
         <parameter name="baseURI" value="https://gorest.co.in"></parameter>
         <classes>
+            <class name="com.qa.gorest.tests.CreateUserTest" />
             <class name="com.qa.gorest.tests.GetUserTest"/>
         </classes>
     </test>
@@ -47,6 +50,13 @@
         <parameter name="baseURI" value="https://rahulshettyacademy.com"></parameter>
         <classes>
             <class name="com.qa.gorest.tests.LibraryCreateAPITest"/>
+        </classes>
+    </test>
+
+    <test name="PetStore">
+        <parameter name="baseURI" value="https://petstore.swagger.io"></parameter>
+        <classes>
+            <class name="com.qa.gorest.tests.PetStoreAPITest"></class>
         </classes>
     </test>
 

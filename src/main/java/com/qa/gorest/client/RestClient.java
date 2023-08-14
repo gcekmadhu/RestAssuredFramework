@@ -5,11 +5,9 @@ import com.qa.gorest.frameworkexception.APIFrameworkException;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
@@ -18,7 +16,7 @@ public class RestClient {
     //private static final String BASE_URI="https://gorest.co.in";
     //private static final String BEARER_TOKEN="239dafcb60d8f1403deacb900f63cee6bf2153c54c077c66f3a481ef8e99c51c";
     private Properties prop;
-    private String baseURI;
+    private final String baseURI;
     private boolean isAuthorizationHeaderAdded=false;
 
     //Static block is executed before object creation and once only
