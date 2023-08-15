@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="RestAssured" thread-count="1" parallel="tests" verbose="4">
+    <listeners>
+        <listener class-name="com.qa.gorest.listeners.ExtentReportListener"></listener>
+    </listeners>
+
+    <test name="PetStore">
+        <parameter name="baseURI" value="https://petstore.swagger.io"></parameter>
+        <classes>
+            <class name="com.qa.gorest.tests.PetStoreAPITest"></class>
+        </classes>
+    </test>
+
+</suite>
