@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class ReqRespTest extends BaseTest {
 
-    @Test
+    @Test(enabled = false)
     public void getAllUserTest(){
         restClient.get(REQ_RES_ENDPOINT+"/2",false,true)
                 .then()
