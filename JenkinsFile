@@ -19,7 +19,7 @@ stages
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/gcekmadhu/RestAssuredFramework.git'
-                    sh "mvn clean test -Dsurefire.suiteXmlFiles=E:/Framework/APIJuly23Framework/src/test/resources/TestRunner/testng.xml"
+                    sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/TestRunner/testng.xml"
 
                 }
             }
@@ -64,7 +64,7 @@ stages
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/gcekmadhu/RestAssuredFramework.git'
-                    sh "mvn clean test -Dsurefire.suiteXmlFiles=E:/Framework/APIJuly23Framework/src/test/resources/TestRunner/testng_sanity.xml"
+                    sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/TestRunner/testng_sanity.xml"
 
                 }
             }
