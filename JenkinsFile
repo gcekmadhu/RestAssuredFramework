@@ -6,7 +6,8 @@ pipeline
     	maven 'maven'
         }
 
-
+stages
+    {
 
         stage("Deploy to QA"){
             steps{
@@ -89,3 +90,5 @@ pipeline
             }
         }
     }
+
+}
