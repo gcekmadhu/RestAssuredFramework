@@ -61,7 +61,7 @@ pipeline
     steps {
         script {
 
-        def exitCode = bat(script: "docker run --name restapiframework${BUILD_NUMBER} -e MAVEN_OPTS='-Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng.xml' gcekmadhu/restapiframework:latest", returnStatus: true)
+        def exitCode = bat(script: "docker run --name restapiframework${BUILD_NUMBER} -e MAVEN_OPTS='-Dsurefire.suiteXmlFiles=src/test/resources/TestRunner/testng.xml' gcekmadhu/restapiframework:latest", returnStatus: true)
             if (exitCode != 0) {
                 currentBuild.result = 'FAILURE' // Mark the build as failed if tests fail
             }
