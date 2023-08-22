@@ -26,6 +26,8 @@ public class BaseTest {
     public static final String LIBRARY_DELETE_ENDPOINT="/Library/DeleteBook.php";
     public static final String PET_POST="/v2/pet";
     public static final String PET_GET="v2/pet";
+    public static final String BOOK_STORE_USER="/Account/v1/User";
+    public static final String BOOKSTORE_TOKEN="/Account/v1/GenerateToken";
     @Parameters({"baseURI"})
     @BeforeClass
     public void setUp(String baseURI){
