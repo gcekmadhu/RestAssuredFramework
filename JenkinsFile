@@ -55,6 +55,7 @@ pipeline
                   sh 'docker push gcekmadhu/restapiframework:latest'
                 }
               }
+            }
 
         stage('Run Docker Image with Regression Tests') {
     steps {
