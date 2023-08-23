@@ -138,9 +138,9 @@
             <forkCount>3</forkCount>
             <reuseForks>true</reuseForks>
             <suiteXmlFiles>
-              <suiteXmlFile>src/test/resources/TestRunner/testng.xml</suiteXmlFile>
+<!--              <suiteXmlFile>src/test/resources/TestRunner/testng.xml</suiteXmlFile>-->
 <!--                add this to jenkins file -e MAVEN_OPTS='-Dsurefire.suiteXmlFiles=src/test/resources/TestRunner/testng.xml'-->
-<!--              <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>-->
+              <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
             </suiteXmlFiles>
           </configuration>
         </plugin>
