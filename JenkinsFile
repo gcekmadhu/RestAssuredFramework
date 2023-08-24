@@ -43,7 +43,7 @@ pipeline
         stage('Docker Build') {
             	agent any
               steps {
-              	bat 'docker build -t gcekmadhu/restapiframework:latest .'
+              	bat 'docker build -t latestapiframework:latest .'
               }
             }
             stage('Docker Push') {
@@ -51,8 +51,8 @@ pipeline
               steps {
               	withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
                 	bat "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                	bat 'docker tag restapiframework:latest gcekmadhu/restapiframework'
-                  bat 'docker push gcekmadhu/restapiframework:latest'
+                	bat 'docker tag latestapiframework:latest gcekmadhu/latestapiframework'
+                  bat 'docker push gcekmadhu/latestapiframework:latest'
                 }
               }
             }
@@ -61,7 +61,7 @@ pipeline
     steps {
         script {
 
-        def exitCode = bat(script: "docker run --name restapiframework${BUILD_NUMBER} -e MAVEN_OPTS='-Dsurefire.suiteXmlFiles=${project.basedir}/src/test/resources/TestRunner/testng.xml' gcekmadhu/restapiframework:latest", returnStatus: true)
+        def exitCode = bat(script: "docker run --name restapiframework${BUILD_NUMBER} gcekmadhu/latestapiframework:latest mvn test -Dsurefire.suiteXmlFiles=src/test/resources/TestRunner/testng.xml", returnStatus: true)
             if (exitCode != 0) {
                 currentBuild.result = 'FAILURE' // Mark the build as failed if tests fail
             }
